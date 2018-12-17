@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OPG_PO_IMPORTModelStoreContainer" CdmEntityContainer="OPG_PO_IMPORTEntities">
+    <EntitySetMapping Name="tblEmailExclusionLists">
+      <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblEmailExclusionList">
+        <MappingFragment StoreEntitySet="tblEmailExclusionList">
+          <ScalarProperty Name="EXID" ColumnName="EXID" />
+          <ScalarProperty Name="ExclusionText" ColumnName="ExclusionText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRegions">
+      <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblRegion">
+        <MappingFragment StoreEntitySet="tblRegions">
+          <ScalarProperty Name="RID" ColumnName="RID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblREJECT_LIST_PO_LEGACY">
+      <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblREJECT_LIST_PO_LEGACY">
+        <MappingFragment StoreEntitySet="tblREJECT_LIST_PO_LEGACY">
+          <ScalarProperty Name="PO_NUMBER" ColumnName="PO_NUMBER" />
+          <ScalarProperty Name="REJECT_EMAIL" ColumnName="REJECT_EMAIL" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="FileImportName" ColumnName="FileImportName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRejectLists">
+      <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblRejectList">
+        <MappingFragment StoreEntitySet="tblRejectList">
+          <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+          <ScalarProperty Name="REJECT_EMAIL" ColumnName="REJECT_EMAIL" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRTVReturns">
+      <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblRTVReturn">
+        <MappingFragment StoreEntitySet="tblRTVReturns">
+          <ScalarProperty Name="RID" ColumnName="RID" />
+          <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
+          <ScalarProperty Name="JobName" ColumnName="JobName" />
+          <ScalarProperty Name="Postage" ColumnName="Postage" />
+          <ScalarProperty Name="CreatorOP" ColumnName="CreatorOP" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="PO" ColumnName="PO" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="TicketDate" ColumnName="TicketDate" />
+          <ScalarProperty Name="SeqNum" ColumnName="SeqNum" />
+          <ScalarProperty Name="NoPages" ColumnName="NoPages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVendorAddresses">
+      <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblVendorAddress">
+        <MappingFragment StoreEntitySet="tblVendorAddresses">
+          <ScalarProperty Name="VID" ColumnName="VID" />
+          <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Prov" ColumnName="Prov" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PC" ColumnName="PC" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVendorProcesses">
+      <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblVendorProcess">
+        <MappingFragment StoreEntitySet="tblVendorProcess">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="PrivateID" ColumnName="PrivateID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="V_EXT_DESC" ColumnName="V_EXT_DESC" />
+          <ScalarProperty Name="V_INT_DESC" ColumnName="V_INT_DESC" />
+          <ScalarProperty Name="MODIFY_DATE" ColumnName="MODIFY_DATE" />
+          <ScalarProperty Name="MODIFY_TYPE" ColumnName="MODIFY_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

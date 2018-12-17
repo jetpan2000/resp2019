@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OPG_PO_IMPORTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblEmailExclusionList">
+          <Key>
+            <PropertyRef Name="EXID" />
+          </Key>
+          <Property Name="EXID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExclusionText" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRegions">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblREJECT_LIST_PO_LEGACY">
+          <Key>
+            <PropertyRef Name="PO_NUMBER" />
+          </Key>
+          <Property Name="PO_NUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="REJECT_EMAIL" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="FileImportName" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRejectList">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="VENDOR_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="REJECT_EMAIL" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRTVReturns">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TicketNo" Type="varchar" MaxLength="50" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="VendorNo" Type="varchar" MaxLength="50" />
+          <Property Name="JobName" Type="varchar" MaxLength="50" />
+          <Property Name="Postage" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreatorOP" Type="varchar" MaxLength="50" />
+          <Property Name="ExceptionType" Type="varchar" MaxLength="50" />
+          <Property Name="VendorName" Type="varchar" MaxLength="200" />
+          <Property Name="Source" Type="varchar" MaxLength="50" />
+          <Property Name="PO" Type="varchar" MaxLength="50" />
+          <Property Name="InvoiceNo" Type="varchar" MaxLength="50" />
+          <Property Name="TicketDate" Type="datetime" />
+          <Property Name="SeqNum" Type="bigint" />
+          <Property Name="NoPages" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tblVendorAddresses">
+          <Key>
+            <PropertyRef Name="VID" />
+          </Key>
+          <Property Name="VID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VendorNo" Type="varchar" MaxLength="50" />
+          <Property Name="VendorName" Type="varchar" MaxLength="500" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Address1" Type="varchar" MaxLength="500" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="Prov" Type="varchar" MaxLength="100" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="PC" Type="varchar" MaxLength="50" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblVendorProcess">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PrivateID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="InvoiceType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="V_EXT_DESC" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="V_INT_DESC" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="MODIFY_DATE" Type="datetime" Nullable="false" />
+          <Property Name="MODIFY_TYPE" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="OPG_PO_IMPORTModelStoreContainer">
+          <EntitySet Name="tblEmailExclusionList" EntityType="Self.tblEmailExclusionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRegions" EntityType="Self.tblRegions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblREJECT_LIST_PO_LEGACY" EntityType="Self.tblREJECT_LIST_PO_LEGACY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRejectList" EntityType="Self.tblRejectList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRTVReturns" EntityType="Self.tblRTVReturns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVendorAddresses" EntityType="Self.tblVendorAddresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVendorProcess" EntityType="Self.tblVendorProcess" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OPG_PO_IMPORTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblEmailExclusionList">
+          <Key>
+            <PropertyRef Name="EXID" />
+          </Key>
+          <Property Name="EXID" Type="Guid" Nullable="false" />
+          <Property Name="ExclusionText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRegion">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Guid" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblREJECT_LIST_PO_LEGACY">
+          <Key>
+            <PropertyRef Name="PO_NUMBER" />
+          </Key>
+          <Property Name="PO_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REJECT_EMAIL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FileImportName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRejectList">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="VENDOR_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REJECT_EMAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="GUID" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRTVReturn">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Guid" Nullable="false" />
+          <Property Name="TicketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="VendorNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Postage" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatorOP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExceptionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VendorName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TicketDate" Type="DateTime" Precision="3" />
+          <Property Name="SeqNum" Type="Int64" />
+          <Property Name="NoPages" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tblVendorAddress">
+          <Key>
+            <PropertyRef Name="VID" />
+          </Key>
+          <Property Name="VID" Type="Guid" Nullable="false" />
+          <Property Name="VendorNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VendorName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Prov" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblVendorProcess">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="PrivateID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InvoiceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="V_EXT_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="V_INT_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODIFY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MODIFY_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="OPG_PO_IMPORTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblEmailExclusionLists" EntityType="Self.tblEmailExclusionList" />
+          <EntitySet Name="tblRegions" EntityType="Self.tblRegion" />
+          <EntitySet Name="tblREJECT_LIST_PO_LEGACY" EntityType="Self.tblREJECT_LIST_PO_LEGACY" />
+          <EntitySet Name="tblRejectLists" EntityType="Self.tblRejectList" />
+          <EntitySet Name="tblRTVReturns" EntityType="Self.tblRTVReturn" />
+          <EntitySet Name="tblVendorAddresses" EntityType="Self.tblVendorAddress" />
+          <EntitySet Name="tblVendorProcesses" EntityType="Self.tblVendorProcess" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OPG_PO_IMPORTModelStoreContainer" CdmEntityContainer="OPG_PO_IMPORTEntities">
+          <EntitySetMapping Name="tblEmailExclusionLists">
+            <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblEmailExclusionList">
+              <MappingFragment StoreEntitySet="tblEmailExclusionList">
+                <ScalarProperty Name="EXID" ColumnName="EXID" />
+                <ScalarProperty Name="ExclusionText" ColumnName="ExclusionText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRegions">
+            <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblRegion">
+              <MappingFragment StoreEntitySet="tblRegions">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblREJECT_LIST_PO_LEGACY">
+            <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblREJECT_LIST_PO_LEGACY">
+              <MappingFragment StoreEntitySet="tblREJECT_LIST_PO_LEGACY">
+                <ScalarProperty Name="PO_NUMBER" ColumnName="PO_NUMBER" />
+                <ScalarProperty Name="REJECT_EMAIL" ColumnName="REJECT_EMAIL" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="FileImportName" ColumnName="FileImportName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRejectLists">
+            <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblRejectList">
+              <MappingFragment StoreEntitySet="tblRejectList">
+                <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+                <ScalarProperty Name="REJECT_EMAIL" ColumnName="REJECT_EMAIL" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRTVReturns">
+            <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblRTVReturn">
+              <MappingFragment StoreEntitySet="tblRTVReturns">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
+                <ScalarProperty Name="JobName" ColumnName="JobName" />
+                <ScalarProperty Name="Postage" ColumnName="Postage" />
+                <ScalarProperty Name="CreatorOP" ColumnName="CreatorOP" />
+                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="PO" ColumnName="PO" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="TicketDate" ColumnName="TicketDate" />
+                <ScalarProperty Name="SeqNum" ColumnName="SeqNum" />
+                <ScalarProperty Name="NoPages" ColumnName="NoPages" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVendorAddresses">
+            <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblVendorAddress">
+              <MappingFragment StoreEntitySet="tblVendorAddresses">
+                <ScalarProperty Name="VID" ColumnName="VID" />
+                <ScalarProperty Name="VendorNo" ColumnName="VendorNo" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Prov" ColumnName="Prov" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PC" ColumnName="PC" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVendorProcesses">
+            <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tblVendorProcess">
+              <MappingFragment StoreEntitySet="tblVendorProcess">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="PrivateID" ColumnName="PrivateID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="V_EXT_DESC" ColumnName="V_EXT_DESC" />
+                <ScalarProperty Name="V_INT_DESC" ColumnName="V_INT_DESC" />
+                <ScalarProperty Name="MODIFY_DATE" ColumnName="MODIFY_DATE" />
+                <ScalarProperty Name="MODIFY_TYPE" ColumnName="MODIFY_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

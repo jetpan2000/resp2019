@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Octacom.OICSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="OICSConnectorActivity">
+    <Key>
+      <PropertyRef Name="OICSConnectorActivityId" />
+    </Key>
+    <Property Name="OICSConnectorActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProcessingStage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MessageLevel" Type="Byte" Nullable="false" />
+    <Property Name="MessageCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ActivityTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OICSConnectorProcessId" Type="Int32" Nullable="false" />
+    <Property Name="DataType" Type="Byte" Nullable="false" />
+    <Property Name="MessageText" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OICSConnectorProcess" Relationship="Self.FK_OICSConnectorActivity_OICSConnectorProcess" FromRole="OICSConnectorActivity" ToRole="OICSConnectorProcess" />
+  </EntityType>
+  <EntityType Name="OICSConnectorProcess">
+    <Key>
+      <PropertyRef Name="OICSConnectorProcessId" />
+    </Key>
+    <Property Name="OICSConnectorProcessId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrimaryFileName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InitializationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastSendTime" Type="DateTime" Precision="3" />
+    <Property Name="Success" Type="Boolean" Nullable="false" />
+    <Property Name="Finalized" Type="Boolean" Nullable="false" />
+    <Property Name="TerminalStage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FinalizationTime" Type="DateTime" Precision="3" />
+    <Property Name="HasErrors" Type="Boolean" Nullable="false" />
+    <Property Name="HasWarnings" Type="Boolean" Nullable="false" />
+    <Property Name="DataForTramsmission" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="InitialData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ReTryCount" Type="Int16" Nullable="false" />
+    <Property Name="TerminationCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OriginalFileName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OICSConnectorActivities" Relationship="Self.FK_OICSConnectorActivity_OICSConnectorProcess" FromRole="OICSConnectorProcess" ToRole="OICSConnectorActivity" />
+  </EntityType>
+  <Association Name="FK_OICSConnectorActivity_OICSConnectorProcess">
+    <End Role="OICSConnectorProcess" Type="Self.OICSConnectorProcess" Multiplicity="1" />
+    <End Role="OICSConnectorActivity" Type="Self.OICSConnectorActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OICSConnectorProcess">
+        <PropertyRef Name="OICSConnectorProcessId" />
+      </Principal>
+      <Dependent Role="OICSConnectorActivity">
+        <PropertyRef Name="OICSConnectorProcessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Octacom_OICS_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="OICSConnectorActivities" EntityType="Self.OICSConnectorActivity" />
+    <EntitySet Name="OICSConnectorProcesses" EntityType="Self.OICSConnectorProcess" />
+    <AssociationSet Name="FK_OICSConnectorActivity_OICSConnectorProcess" Association="Self.FK_OICSConnectorActivity_OICSConnectorProcess">
+      <End Role="OICSConnectorProcess" EntitySet="OICSConnectorProcesses" />
+      <End Role="OICSConnectorActivity" EntitySet="OICSConnectorActivities" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

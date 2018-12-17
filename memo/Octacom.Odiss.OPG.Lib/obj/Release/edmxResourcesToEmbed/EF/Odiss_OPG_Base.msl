@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Odiss_OPG_BaseModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Application">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDDatabase" ColumnName="IDDatabase" />
+          <ScalarProperty Name="IDFieldGroupBy" ColumnName="IDFieldGroupBy" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SearchTitle" ColumnName="SearchTitle" />
+          <ScalarProperty Name="SortBy" ColumnName="SortBy" />
+          <ScalarProperty Name="RestrictDocumentAccess" ColumnName="RestrictDocumentAccess" />
+          <ScalarProperty Name="TabOrder" ColumnName="TabOrder" />
+          <ScalarProperty Name="DocumentsPath" ColumnName="DocumentsPath" />
+          <ScalarProperty Name="EnablePages" ColumnName="EnablePages" />
+          <ScalarProperty Name="EnableProperties" ColumnName="EnableProperties" />
+          <ScalarProperty Name="EnableEditProperties" ColumnName="EnableEditProperties" />
+          <ScalarProperty Name="EnableNotes" ColumnName="EnableNotes" />
+          <ScalarProperty Name="EnableEmail" ColumnName="EnableEmail" />
+          <ScalarProperty Name="EnableSubmitDocuments" ColumnName="EnableSubmitDocuments" />
+          <ScalarProperty Name="EnableReports" ColumnName="EnableReports" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CustomData" ColumnName="CustomData" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="EnableCreate" ColumnName="EnableCreate" />
+          <ScalarProperty Name="EnableUpdate" ColumnName="EnableUpdate" />
+          <ScalarProperty Name="EnableDelete" ColumnName="EnableDelete" />
+          <ScalarProperty Name="EnableItemlinesCreate" ColumnName="EnableItemlinesCreate" />
+          <ScalarProperty Name="EnableItemlinesUpdate" ColumnName="EnableItemlinesUpdate" />
+          <ScalarProperty Name="EnableItemlinesDelete" ColumnName="EnableItemlinesDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audits">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Audit">
+        <MappingFragment StoreEntitySet="Audit">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDApplication" ColumnName="IDApplication" />
+          <ScalarProperty Name="IDActionType" ColumnName="IDActionType" />
+          <ScalarProperty Name="IDCustomActionType" ColumnName="IDCustomActionType" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Recorded" ColumnName="Recorded" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Databases">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Databas">
+        <MappingFragment StoreEntitySet="Databases">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DBSchema" ColumnName="DBSchema" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fields">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Field">
+        <MappingFragment StoreEntitySet="Fields">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDApplication" ColumnName="IDApplication" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="MapTo" ColumnName="MapTo" />
+          <ScalarProperty Name="Editable" ColumnName="Editable" />
+          <ScalarProperty Name="FilterOrder" ColumnName="FilterOrder" />
+          <ScalarProperty Name="ResultOrder" ColumnName="ResultOrder" />
+          <ScalarProperty Name="FilterType" ColumnName="FilterType" />
+          <ScalarProperty Name="FilterCommand" ColumnName="FilterCommand" />
+          <ScalarProperty Name="FilterData" ColumnName="FilterData" />
+          <ScalarProperty Name="EnableRestriction" ColumnName="EnableRestriction" />
+          <ScalarProperty Name="HeaderGroupName" ColumnName="HeaderGroupName" />
+          <ScalarProperty Name="EnableAutoComplete" ColumnName="EnableAutoComplete" />
+          <ScalarProperty Name="AutoComplete_FilterType" ColumnName="AutoComplete_FilterType" />
+          <ScalarProperty Name="AutoComplete_FilterCommand" ColumnName="AutoComplete_FilterCommand" />
+          <ScalarProperty Name="AutoComplete_MapFields" ColumnName="AutoComplete_MapFields" />
+          <ScalarProperty Name="Format" ColumnName="Format" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="VisibilityType" ColumnName="VisibilityType" />
+          <ScalarProperty Name="ShowInView" ColumnName="ShowInView" />
+          <ScalarProperty Name="Options" ColumnName="Options" />
+          <ScalarProperty Name="NotVisibleList" ColumnName="NotVisibleList" />
+          <ScalarProperty Name="NotVisibleViewer" ColumnName="NotVisibleViewer" />
+          <ScalarProperty Name="NotVisibleSubmit" ColumnName="NotVisibleSubmit" />
+          <ScalarProperty Name="NotVisibleFilter" ColumnName="NotVisibleFilter" />
+          <ScalarProperty Name="MaxLen" ColumnName="MaxLen" />
+          <ScalarProperty Name="NotVisibleExport" ColumnName="NotVisibleExport" />
+          <ScalarProperty Name="IsKey" ColumnName="IsKey" />
+          <ScalarProperty Name="ValidationRulesJson" ColumnName="ValidationRulesJson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Group">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GroupKey" ColumnName="GroupKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notes">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Note">
+        <MappingFragment StoreEntitySet="Notes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDDocument" ColumnName="IDDocument" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Note1" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Report">
+        <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDApplication" ColumnName="IDApplication" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DataSource" ColumnName="DataSource" />
+          <ScalarProperty Name="FileNamePrefix" ColumnName="FileNamePrefix" />
+          <ScalarProperty Name="GraphicalType" ColumnName="GraphicalType" />
+          <ScalarProperty Name="GraphicalOptions" ColumnName="GraphicalOptions" />
+          <ScalarProperty Name="ResultOrder" ColumnName="ResultOrder" />
+          <ScalarProperty Name="Options" ColumnName="Options" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Session">
+        <MappingFragment StoreEntitySet="Sessions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="Expire" ColumnName="Expire" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="LastAction" ColumnName="LastAction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.Setting">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDirectories">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.tblDirectory">
+        <MappingFragment StoreEntitySet="tblDirectory">
+          <ScalarProperty Name="DirectoryID" ColumnName="DirectoryID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Directory" ColumnName="Directory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblExceptions">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.tblException">
+        <MappingFragment StoreEntitySet="tblException">
+          <ScalarProperty Name="ExceptionCode" ColumnName="ExceptionCode" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGroups">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.tblGroup">
+        <MappingFragment StoreEntitySet="tblGroup">
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="DirectoryID" ColumnName="DirectoryID" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="OriginalFilename" ColumnName="OriginalFilename" />
+          <ScalarProperty Name="ProcessFilename" ColumnName="ProcessFilename" />
+          <ScalarProperty Name="ScanDate" ColumnName="ScanDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+          <ScalarProperty Name="Utility" ColumnName="Utility" />
+          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+          <ScalarProperty Name="ExceptionCode" ColumnName="ExceptionCode" />
+          <ScalarProperty Name="AribaExceptionCode" ColumnName="AribaExceptionCode" />
+          <ScalarProperty Name="AribaExceptionReason" ColumnName="AribaExceptionReason" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="I_CaptureDate" ColumnName="I_CaptureDate" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="SourceImage" ColumnName="SourceImage" />
+          <ScalarProperty Name="ArchiveComment" ColumnName="ArchiveComment" />
+          <ScalarProperty Name="ArchivedDate" ColumnName="ArchivedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGroupLines">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.tblGroupLine">
+        <MappingFragment StoreEntitySet="tblGroupLine">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+          <ScalarProperty Name="InvoiceLineNumber" ColumnName="InvoiceLineNumber" />
+          <ScalarProperty Name="UOM" ColumnName="UOM" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="ExtendedPrie" ColumnName="ExtendedPrie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLocations">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.tblLocation">
+        <MappingFragment StoreEntitySet="tblLocation">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="RPath" ColumnName="RPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="test_ref">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.test_ref">
+        <MappingFragment StoreEntitySet="test_ref">
+          <ScalarProperty Name="refId" ColumnName="refId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneOffice" ColumnName="PhoneOffice" />
+          <ScalarProperty Name="PhoneMobile" ColumnName="PhoneMobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Expire" ColumnName="Expire" />
+          <ScalarProperty Name="Permissions" ColumnName="Permissions" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="LockAccessUntil" ColumnName="LockAccessUntil" />
+          <ScalarProperty Name="WrongAccessAttempts" ColumnName="WrongAccessAttempts" />
+          <ScalarProperty Name="ChangePassword" ColumnName="ChangePassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersDocuments">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.UsersDocument">
+        <MappingFragment StoreEntitySet="UsersDocuments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="IDApplication" ColumnName="IDApplication" />
+          <ScalarProperty Name="IDField" ColumnName="IDField" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="FieldValue" ColumnName="FieldValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersGroups">
+      <EntityTypeMapping TypeName="Odiss_OPG_BaseModel.UsersGroup">
+        <MappingFragment StoreEntitySet="UsersGroups">
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="IDGroup" ColumnName="IDGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UsersApplications" TypeName="Odiss_OPG_BaseModel.UsersApplications" StoreEntitySet="UsersApplications">
+      <EndProperty Name="Applications">
+        <ScalarProperty Name="ID" ColumnName="IDApplication" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="ID" ColumnName="IDUser" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

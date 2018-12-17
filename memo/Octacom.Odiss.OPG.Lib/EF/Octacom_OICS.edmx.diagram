@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2978547523af4bd2a8529e2aa90dee28" Name="Diagram1">
+        <EntityTypeShape EntityType="Octacom.OICSModel.OICSConnectorActivity" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Octacom.OICSModel.OICSConnectorProcess" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Octacom.OICSModel.FK_OICSConnectorActivity_OICSConnectorProcess" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Octacom.OICSModel.AribaProcessedException" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OctacomOICSModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="OICSConnectorActivities">
+      <EntityTypeMapping TypeName="Octacom.OICSModel.OICSConnectorActivity">
+        <MappingFragment StoreEntitySet="OICSConnectorActivity">
+          <ScalarProperty Name="OICSConnectorActivityId" ColumnName="OICSConnectorActivityId" />
+          <ScalarProperty Name="ProcessingStage" ColumnName="ProcessingStage" />
+          <ScalarProperty Name="MessageLevel" ColumnName="MessageLevel" />
+          <ScalarProperty Name="MessageCode" ColumnName="MessageCode" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="ActivityTime" ColumnName="ActivityTime" />
+          <ScalarProperty Name="OICSConnectorProcessId" ColumnName="OICSConnectorProcessId" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OICSConnectorProcesses">
+      <EntityTypeMapping TypeName="Octacom.OICSModel.OICSConnectorProcess">
+        <MappingFragment StoreEntitySet="OICSConnectorProcess">
+          <ScalarProperty Name="OICSConnectorProcessId" ColumnName="OICSConnectorProcessId" />
+          <ScalarProperty Name="PrimaryFileName" ColumnName="PrimaryFileName" />
+          <ScalarProperty Name="InitializationTime" ColumnName="InitializationTime" />
+          <ScalarProperty Name="LastSendTime" ColumnName="LastSendTime" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+          <ScalarProperty Name="Finalized" ColumnName="Finalized" />
+          <ScalarProperty Name="TerminalStage" ColumnName="TerminalStage" />
+          <ScalarProperty Name="FinalizationTime" ColumnName="FinalizationTime" />
+          <ScalarProperty Name="HasErrors" ColumnName="HasErrors" />
+          <ScalarProperty Name="HasWarnings" ColumnName="HasWarnings" />
+          <ScalarProperty Name="DataForTramsmission" ColumnName="DataForTramsmission" />
+          <ScalarProperty Name="ProcessData" ColumnName="ProcessData" />
+          <ScalarProperty Name="InitialData" ColumnName="InitialData" />
+          <ScalarProperty Name="ReTryCount" ColumnName="ReTryCount" />
+          <ScalarProperty Name="TerminationCode" ColumnName="TerminationCode" />
+          <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAribaExceptionBatchType" FunctionName="Octacom.OICSModel.Store.GetAribaExceptionBatchType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Octacom.OICSModel.GetAribaExceptionBatchType_Result">
+          <ScalarProperty Name="AribaXMLFILE" ColumnName="AribaXMLFILE" />
+          <ScalarProperty Name="FinalizationTime" ColumnName="FinalizationTime" />
+          <ScalarProperty Name="DCOutputXMLFile" ColumnName="DCOutputXMLFile" />
+          <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAribaExceptionSender" FunctionName="Octacom.OICSModel.Store.GetAribaExceptionSender">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Octacom.OICSModel.GetAribaExceptionSender_Result">
+          <ScalarProperty Name="AribaXMLFILE" ColumnName="AribaXMLFILE" />
+          <ScalarProperty Name="DCOutputXMLFile" ColumnName="DCOutputXMLFile" />
+          <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+          <ScalarProperty Name="SourceImage" ColumnName="SourceImage" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AribaProcessedExceptions">
+      <EntityTypeMapping TypeName="Octacom.OICSModel.AribaProcessedException">
+        <MappingFragment StoreEntitySet="AribaProcessedException">
+          <ScalarProperty Name="ServiceDetails" ColumnName="ServiceDetails" />
+          <ScalarProperty Name="ProcessedDate" ColumnName="ProcessedDate" />
+          <ScalarProperty Name="ServiceState" ColumnName="ServiceState" />
+          <ScalarProperty Name="OICSConnectorProcessId" ColumnName="OICSConnectorProcessId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAribaWaitingExceptionList" FunctionName="Octacom.OICSModel.Store.GetAribaWaitingExceptionList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Octacom.OICSModel.GetAribaWaitingExceptionList_Result">
+          <ScalarProperty Name="OICSConnectorProcessId" ColumnName="OICSConnectorProcessId" />
+          <ScalarProperty Name="PrimaryFileName" ColumnName="PrimaryFileName" />
+          <ScalarProperty Name="InitializationTime" ColumnName="InitializationTime" />
+          <ScalarProperty Name="LastSendTime" ColumnName="LastSendTime" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+          <ScalarProperty Name="Finalized" ColumnName="Finalized" />
+          <ScalarProperty Name="TerminalStage" ColumnName="TerminalStage" />
+          <ScalarProperty Name="FinalizationTime" ColumnName="FinalizationTime" />
+          <ScalarProperty Name="HasErrors" ColumnName="HasErrors" />
+          <ScalarProperty Name="HasWarnings" ColumnName="HasWarnings" />
+          <ScalarProperty Name="DataForTramsmission" ColumnName="DataForTramsmission" />
+          <ScalarProperty Name="ProcessData" ColumnName="ProcessData" />
+          <ScalarProperty Name="InitialData" ColumnName="InitialData" />
+          <ScalarProperty Name="ReTryCount" ColumnName="ReTryCount" />
+          <ScalarProperty Name="TerminationCode" ColumnName="TerminationCode" />
+          <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

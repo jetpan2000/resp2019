@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Octacom.OICSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="OICSConnectorActivity">
+    <Key>
+      <PropertyRef Name="OICSConnectorActivityId" />
+    </Key>
+    <Property Name="OICSConnectorActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcessingStage" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MessageLevel" Type="tinyint" Nullable="false" />
+    <Property Name="MessageCode" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" />
+    <Property Name="ActivityTime" Type="datetime" Nullable="false" />
+    <Property Name="OICSConnectorProcessId" Type="int" Nullable="false" />
+    <Property Name="DataType" Type="tinyint" Nullable="false" />
+    <Property Name="MessageText" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="OICSConnectorProcess">
+    <Key>
+      <PropertyRef Name="OICSConnectorProcessId" />
+    </Key>
+    <Property Name="OICSConnectorProcessId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrimaryFileName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="InitializationTime" Type="datetime" Nullable="false" />
+    <Property Name="LastSendTime" Type="datetime" />
+    <Property Name="Success" Type="bit" Nullable="false" />
+    <Property Name="Finalized" Type="bit" Nullable="false" />
+    <Property Name="TerminalStage" Type="varchar" MaxLength="50" />
+    <Property Name="FinalizationTime" Type="datetime" />
+    <Property Name="HasErrors" Type="bit" Nullable="false" />
+    <Property Name="HasWarnings" Type="bit" Nullable="false" />
+    <Property Name="DataForTramsmission" Type="nvarchar(max)" />
+    <Property Name="ProcessData" Type="varbinary(max)" />
+    <Property Name="InitialData" Type="varbinary(max)" />
+    <Property Name="ReTryCount" Type="smallint" Nullable="false" />
+    <Property Name="TerminationCode" Type="varchar" MaxLength="100" />
+    <Property Name="OriginalFileName" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_OICSConnectorActivity_OICSConnectorProcess">
+    <End Role="OICSConnectorProcess" Type="Self.OICSConnectorProcess" Multiplicity="1" />
+    <End Role="OICSConnectorActivity" Type="Self.OICSConnectorActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OICSConnectorProcess">
+        <PropertyRef Name="OICSConnectorProcessId" />
+      </Principal>
+      <Dependent Role="OICSConnectorActivity">
+        <PropertyRef Name="OICSConnectorProcessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OctacomOICSModelStoreContainer">
+    <EntitySet Name="OICSConnectorActivity" EntityType="Self.OICSConnectorActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OICSConnectorProcess" EntityType="Self.OICSConnectorProcess" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_OICSConnectorActivity_OICSConnectorProcess" Association="Self.FK_OICSConnectorActivity_OICSConnectorProcess">
+      <End Role="OICSConnectorProcess" EntitySet="OICSConnectorProcess" />
+      <End Role="OICSConnectorActivity" EntitySet="OICSConnectorActivity" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

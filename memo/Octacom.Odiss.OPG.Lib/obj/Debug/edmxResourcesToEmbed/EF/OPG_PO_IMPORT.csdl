@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OPG_PO_IMPORTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblEmailExclusionList">
+    <Key>
+      <PropertyRef Name="EXID" />
+    </Key>
+    <Property Name="EXID" Type="Guid" Nullable="false" />
+    <Property Name="ExclusionText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblRegion">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="Guid" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblREJECT_LIST_PO_LEGACY">
+    <Key>
+      <PropertyRef Name="PO_NUMBER" />
+    </Key>
+    <Property Name="PO_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REJECT_EMAIL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GUID" Type="Guid" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FileImportName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblRejectList">
+    <Key>
+      <PropertyRef Name="GUID" />
+    </Key>
+    <Property Name="VENDOR_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REJECT_EMAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="GUID" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblRTVReturn">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="Guid" Nullable="false" />
+    <Property Name="TicketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+    <Property Name="VendorNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JobName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Postage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatorOP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VendorName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TicketDate" Type="DateTime" Precision="3" />
+    <Property Name="SeqNum" Type="Int64" />
+    <Property Name="NoPages" Type="Int64" />
+  </EntityType>
+  <EntityType Name="tblVendorAddress">
+    <Key>
+      <PropertyRef Name="VID" />
+    </Key>
+    <Property Name="VID" Type="Guid" Nullable="false" />
+    <Property Name="VendorNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VendorName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Prov" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblVendorProcess">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="PrivateID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InvoiceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="V_EXT_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="V_INT_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODIFY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MODIFY_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="OPG_PO_IMPORTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblEmailExclusionLists" EntityType="Self.tblEmailExclusionList" />
+    <EntitySet Name="tblRegions" EntityType="Self.tblRegion" />
+    <EntitySet Name="tblREJECT_LIST_PO_LEGACY" EntityType="Self.tblREJECT_LIST_PO_LEGACY" />
+    <EntitySet Name="tblRejectLists" EntityType="Self.tblRejectList" />
+    <EntitySet Name="tblRTVReturns" EntityType="Self.tblRTVReturn" />
+    <EntitySet Name="tblVendorAddresses" EntityType="Self.tblVendorAddress" />
+    <EntitySet Name="tblVendorProcesses" EntityType="Self.tblVendorProcess" />
+  </EntityContainer>
+</Schema>
