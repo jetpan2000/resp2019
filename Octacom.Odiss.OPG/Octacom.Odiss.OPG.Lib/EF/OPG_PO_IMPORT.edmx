@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OPG_PO_IMPORTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_OPG_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROCESS_DATE" Type="date" Nullable="false" />
+          <Property Name="BATCH_ID" Type="varchar" MaxLength="100" />
+          <Property Name="BATCH_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="XML_FILENAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PDF_FILENAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PDF_FILENAME_NEW" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DOC_TYPE" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="VENDOR_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="VENDOR_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PO_NUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="INVOICE_NUMBER" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="INVOICE_DATE" Type="date" />
+          <Property Name="SAP_PO_NUMBER" Type="varchar" MaxLength="50" />
+          <Property Name="UTILITY_ACCT_NUMBER" Type="varchar" MaxLength="50" />
+          <Property Name="TOTAL_AMOUNT" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IS_EXCEPTION" Type="bit" Nullable="false" />
+          <Property Name="EXCEPTION_CODE" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="RTV_REJECT_TYPE" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="RTV_REJECT_FILE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="RTV_REPORT_DONE" Type="bit" Nullable="false" />
+          <Property Name="SourceImage" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="OPG_PO_IMPORTModelStoreContainer">
+          <EntitySet Name="tbl_OPG_LOG" EntityType="Self.tbl_OPG_LOG" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OPG_PO_IMPORTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_OPG_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROCESS_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BATCH_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BATCH_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="XML_FILENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PDF_FILENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PDF_FILENAME_NEW" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOC_TYPE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VENDOR_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VENDOR_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PO_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INVOICE_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INVOICE_DATE" Type="DateTime" Precision="0" />
+          <Property Name="SAP_PO_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UTILITY_ACCT_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IS_EXCEPTION" Type="Boolean" Nullable="false" />
+          <Property Name="EXCEPTION_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RTV_REJECT_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RTV_REJECT_FILE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RTV_REPORT_DONE" Type="Boolean" Nullable="false" />
+          <Property Name="SourceImage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_OPG_LOG" EntityType="Self.tbl_OPG_LOG" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OPG_PO_IMPORTModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="tbl_OPG_LOG">
+            <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tbl_OPG_LOG">
+              <MappingFragment StoreEntitySet="tbl_OPG_LOG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PROCESS_DATE" ColumnName="PROCESS_DATE" />
+                <ScalarProperty Name="BATCH_ID" ColumnName="BATCH_ID" />
+                <ScalarProperty Name="BATCH_TYPE" ColumnName="BATCH_TYPE" />
+                <ScalarProperty Name="XML_FILENAME" ColumnName="XML_FILENAME" />
+                <ScalarProperty Name="PDF_FILENAME" ColumnName="PDF_FILENAME" />
+                <ScalarProperty Name="PDF_FILENAME_NEW" ColumnName="PDF_FILENAME_NEW" />
+                <ScalarProperty Name="DOC_TYPE" ColumnName="DOC_TYPE" />
+                <ScalarProperty Name="VENDOR_NAME" ColumnName="VENDOR_NAME" />
+                <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+                <ScalarProperty Name="PO_NUMBER" ColumnName="PO_NUMBER" />
+                <ScalarProperty Name="INVOICE_NUMBER" ColumnName="INVOICE_NUMBER" />
+                <ScalarProperty Name="INVOICE_DATE" ColumnName="INVOICE_DATE" />
+                <ScalarProperty Name="SAP_PO_NUMBER" ColumnName="SAP_PO_NUMBER" />
+                <ScalarProperty Name="UTILITY_ACCT_NUMBER" ColumnName="UTILITY_ACCT_NUMBER" />
+                <ScalarProperty Name="TOTAL_AMOUNT" ColumnName="TOTAL_AMOUNT" />
+                <ScalarProperty Name="IS_EXCEPTION" ColumnName="IS_EXCEPTION" />
+                <ScalarProperty Name="EXCEPTION_CODE" ColumnName="EXCEPTION_CODE" />
+                <ScalarProperty Name="RTV_REJECT_TYPE" ColumnName="RTV_REJECT_TYPE" />
+                <ScalarProperty Name="RTV_REJECT_FILE" ColumnName="RTV_REJECT_FILE" />
+                <ScalarProperty Name="RTV_REPORT_DONE" ColumnName="RTV_REPORT_DONE" />
+                <ScalarProperty Name="SourceImage" ColumnName="SourceImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

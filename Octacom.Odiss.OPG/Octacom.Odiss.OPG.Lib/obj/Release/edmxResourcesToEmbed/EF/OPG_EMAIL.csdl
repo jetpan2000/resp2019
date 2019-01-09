@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OPG_EMAILModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAuditTrack">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EventTime" Type="DateTime" Precision="3" />
+    <Property Name="EventType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="referencetable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblBatchTrack">
+    <Key>
+      <PropertyRef Name="BID" />
+    </Key>
+    <Property Name="BID" Type="Guid" Nullable="false" />
+    <Property Name="TicketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BatchID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BatchDate" Type="DateTime" Precision="3" />
+    <Property Name="InvoiceCount" Type="Int64" />
+    <Property Name="EnvelopeCount" Type="Int64" />
+    <Property Name="RTCCount" Type="Int64" />
+    <Property Name="RTVCount" Type="Int64" />
+    <Property Name="PageCount" Type="Int64" />
+    <Property Name="Stage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BatchType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreationOP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TicketDate" Type="DateTime" Precision="3" />
+    <Property Name="PrepInvoiceCount" Type="Int64" />
+  </EntityType>
+  <EntityType Name="tblBatchType">
+    <Key>
+      <PropertyRef Name="BTID" />
+    </Key>
+    <Property Name="BTID" Type="Guid" Nullable="false" />
+    <Property Name="BatchType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="OPG_EMAILEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAuditTracks" EntityType="Self.tblAuditTrack" />
+    <EntitySet Name="tblBatchTracks" EntityType="Self.tblBatchTrack" />
+    <EntitySet Name="tblBatchTypes" EntityType="Self.tblBatchType" />
+    <EntitySet Name="vw_Email" EntityType="OPG_EMAILModel.vw_Email" />
+  </EntityContainer>
+  <EntityType Name="vw_Email">
+    <Key>
+      <PropertyRef Name="Exception" />
+      <PropertyRef Name="Returned" />
+      <PropertyRef Name="EID" />
+      <PropertyRef Name="PartialException" />
+    </Key>
+    <Property Name="RecievedDate" Type="DateTime" Precision="3" />
+    <Property Name="Sender" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NoAttachments" Type="Int32" />
+    <Property Name="TicketNo" Type="Int64" />
+    <Property Name="Exception" Type="Boolean" Nullable="false" />
+    <Property Name="ExceptionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Returned" Type="Boolean" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="UID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="FileLocation" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AttachmentException" Type="Boolean" />
+    <Property Name="ConvertedFileLocation" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="isGood" Type="Boolean" />
+    <Property Name="ConvertTime" Type="DateTime" Precision="3" />
+    <Property Name="EID" Type="Guid" Nullable="false" />
+    <Property Name="ProcessFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="FileExtension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AttachExpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RTV" Type="Boolean" />
+    <Property Name="EmailBackupFile" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PartialException" Type="Boolean" Nullable="false" />
+    <Property Name="ExceptionDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ReturnedDate" Type="DateTime" Precision="3" />
+    <Property Name="EmailAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SvcProcessedFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SvcExceptionReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SvcException" Type="Boolean" />
+    <Property Name="SvcFileExtension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

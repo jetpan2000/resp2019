@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Odiss_OPG_BaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDDatabase" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDFieldGroupBy" Type="uniqueidentifier" />
+    <Property Name="Name" Type="text" />
+    <Property Name="SearchTitle" Type="text" />
+    <Property Name="SortBy" Type="varchar" MaxLength="50" />
+    <Property Name="RestrictDocumentAccess" Type="bit" />
+    <Property Name="TabOrder" Type="int" />
+    <Property Name="DocumentsPath" Type="varchar" MaxLength="250" />
+    <Property Name="EnablePages" Type="bit" Nullable="false" />
+    <Property Name="EnableProperties" Type="bit" Nullable="false" />
+    <Property Name="EnableEditProperties" Type="bit" Nullable="false" />
+    <Property Name="EnableNotes" Type="bit" Nullable="false" />
+    <Property Name="EnableEmail" Type="bit" Nullable="false" />
+    <Property Name="EnableSubmitDocuments" Type="bit" Nullable="false" />
+    <Property Name="EnableReports" Type="bit" Nullable="false" />
+    <Property Name="Type" Type="tinyint" />
+    <Property Name="CustomData" Type="text" />
+    <Property Name="TableName" Type="varchar" MaxLength="100" />
+    <Property Name="EnableCreate" Type="bit" />
+    <Property Name="EnableUpdate" Type="bit" />
+    <Property Name="EnableDelete" Type="bit" />
+    <Property Name="EnableItemlinesCreate" Type="bit" />
+    <Property Name="EnableItemlinesUpdate" Type="bit" />
+    <Property Name="EnableItemlinesDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Audit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDApplication" Type="uniqueidentifier" />
+    <Property Name="IDActionType" Type="int" Nullable="false" />
+    <Property Name="IDCustomActionType" Type="int" />
+    <Property Name="UserName" Type="varchar" MaxLength="16" />
+    <Property Name="Recorded" Type="datetime" Nullable="false" />
+    <Property Name="Data" Type="varchar(max)" />
+    <Property Name="Reference" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Databases">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DBSchema" Type="varchar" MaxLength="255" />
+    <Property Name="Type" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Fields">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDApplication" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="MapTo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Editable" Type="bit" Nullable="false" />
+    <Property Name="FilterOrder" Type="int" />
+    <Property Name="ResultOrder" Type="int" />
+    <Property Name="FilterType" Type="tinyint" />
+    <Property Name="FilterCommand" Type="varchar" MaxLength="100" />
+    <Property Name="FilterData" Type="text" />
+    <Property Name="EnableRestriction" Type="bit" />
+    <Property Name="HeaderGroupName" Type="varchar" MaxLength="250" />
+    <Property Name="EnableAutoComplete" Type="bit" />
+    <Property Name="AutoComplete_FilterType" Type="tinyint" />
+    <Property Name="AutoComplete_FilterCommand" Type="varchar" MaxLength="100" />
+    <Property Name="AutoComplete_MapFields" Type="varchar" MaxLength="100" />
+    <Property Name="Format" Type="varchar" MaxLength="100" />
+    <Property Name="IsRequired" Type="bit" />
+    <Property Name="VisibilityType" Type="tinyint" />
+    <Property Name="ShowInView" Type="varchar" MaxLength="50" />
+    <Property Name="Options" Type="varchar(max)" />
+    <Property Name="NotVisibleList" Type="bit" />
+    <Property Name="NotVisibleViewer" Type="bit" />
+    <Property Name="NotVisibleSubmit" Type="bit" />
+    <Property Name="NotVisibleFilter" Type="bit" />
+    <Property Name="MaxLen" Type="bit" />
+    <Property Name="NotVisibleExport" Type="bit" />
+    <Property Name="IsKey" Type="bit" />
+    <Property Name="ValidationRulesJson" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="GroupKey" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDDocument" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Author" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Note" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reports">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDApplication" Type="uniqueidentifier" />
+    <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DataSource" Type="varchar" MaxLength="100" />
+    <Property Name="FileNamePrefix" Type="varchar" MaxLength="100" />
+    <Property Name="GraphicalType" Type="tinyint" />
+    <Property Name="GraphicalOptions" Type="text" />
+    <Property Name="ResultOrder" Type="int" />
+    <Property Name="Options" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Sessions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDUser" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Expire" Type="datetime" Nullable="false" />
+    <Property Name="Data" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="LastAction" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="text" />
+    <Property Name="Type" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="tblDirectory">
+    <Key>
+      <PropertyRef Name="DirectoryID" />
+    </Key>
+    <Property Name="DirectoryID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LocationID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Directory" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblException">
+    <Key>
+      <PropertyRef Name="ExceptionCode" />
+    </Key>
+    <Property Name="ExceptionCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Exception" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tblGroup">
+    <Key>
+      <PropertyRef Name="GUID" />
+    </Key>
+    <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DirectoryID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DocType" Type="varchar" MaxLength="50" />
+    <Property Name="Filename" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Source" Type="varchar" MaxLength="255" />
+    <Property Name="Sender" Type="varchar" MaxLength="50" />
+    <Property Name="ReceivedDate" Type="datetime" />
+    <Property Name="OriginalFilename" Type="varchar" MaxLength="255" />
+    <Property Name="XMLFile" Type="varchar" MaxLength="255" />
+    <Property Name="OctProcessFilename" Type="varchar" MaxLength="255" />
+    <Property Name="ScanDate" Type="datetime" />
+    <Property Name="InvoiceNo" Type="varchar" MaxLength="50" />
+    <Property Name="PONumber" Type="varchar" MaxLength="50" />
+    <Property Name="Utility" Type="varchar" MaxLength="255" />
+    <Property Name="ReferenceNo" Type="varchar" MaxLength="50" />
+    <Property Name="ExceptionCode" Type="varchar" MaxLength="50" />
+    <Property Name="AribaExceptionCode" Type="varchar" MaxLength="50" />
+    <Property Name="AribaExceptionReason" Type="varchar(max)" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="I_CaptureDate" Type="datetime" />
+    <Property Name="Archived" Type="int" />
+    <Property Name="SourceImage" Type="varchar" MaxLength="250" />
+    <Property Name="ArchiveComment" Type="varchar" MaxLength="1000" />
+    <Property Name="ArchivedDate" Type="datetime" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblGroupLine">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ReferenceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InvoiceLineNumber" Type="int" />
+    <Property Name="UOM" Type="varchar" MaxLength="50" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ExtendedPrie" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblLocation">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Volume" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RPath" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" />
+    <Property Name="PhoneOffice" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneMobile" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="Company" Type="varchar" MaxLength="100" />
+    <Property Name="Expire" Type="datetime" />
+    <Property Name="Permissions" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="LockAccessUntil" Type="datetime" />
+    <Property Name="WrongAccessAttempts" Type="int" />
+    <Property Name="ChangePassword" Type="bit" />
+  </EntityType>
+  <EntityType Name="UsersApplications">
+    <Key>
+      <PropertyRef Name="IDUser" />
+      <PropertyRef Name="IDApplication" />
+    </Key>
+    <Property Name="IDUser" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDApplication" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersDocuments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDUser" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDApplication" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDField" Type="uniqueidentifier" />
+    <Property Name="FieldName" Type="varchar" MaxLength="50" />
+    <Property Name="FieldValue" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="UsersGroups">
+    <Key>
+      <PropertyRef Name="IDUser" />
+      <PropertyRef Name="IDGroup" />
+    </Key>
+    <Property Name="IDUser" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IDGroup" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Applications_Databases">
+    <End Role="Databases" Type="Self.Databases" Multiplicity="1" />
+    <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Databases">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="IDDatabase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_FieldGroupBy">
+    <End Role="Fields" Type="Self.Fields" Multiplicity="0..1" />
+    <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="IDFieldGroupBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Audit_Applications">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="0..1" />
+    <End Role="Audit" Type="Self.Audit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Audit">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fields_Applications">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="Fields" Type="Self.Fields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Fields">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_ApplicationID">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="0..1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Session_UserID">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sessions" Type="Self.Sessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sessions">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDirectory_tblLocation1">
+    <End Role="tblLocation" Type="Self.tblLocation" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblDirectory" Type="Self.tblDirectory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLocation">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="tblDirectory">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGroup_tblDirectory">
+    <End Role="tblDirectory" Type="Self.tblDirectory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblGroup" Type="Self.tblGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDirectory">
+        <PropertyRef Name="DirectoryID" />
+      </Principal>
+      <Dependent Role="tblGroup">
+        <PropertyRef Name="DirectoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGroupLine_tblGroup">
+    <End Role="tblGroup" Type="Self.tblGroup" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblGroupLine" Type="Self.tblGroupLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGroup">
+        <PropertyRef Name="GUID" />
+      </Principal>
+      <Dependent Role="tblGroupLine">
+        <PropertyRef Name="ReferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersApplications_Applications">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="UsersApplications" Type="Self.UsersApplications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UsersApplications">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersApplications_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersApplications" Type="Self.UsersApplications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UsersApplications">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDocuments_Applications">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="UsersDocuments" Type="Self.UsersDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UsersDocuments">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDocuments_Field">
+    <End Role="Fields" Type="Self.Fields" Multiplicity="0..1" />
+    <End Role="UsersDocuments" Type="Self.UsersDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UsersDocuments">
+        <PropertyRef Name="IDField" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDocuments_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersDocuments" Type="Self.UsersDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UsersDocuments">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Odiss_OPG_BaseModelStoreContainer">
+    <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Audit" EntityType="Self.Audit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Databases" EntityType="Self.Databases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fields" EntityType="Self.Fields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDirectory" EntityType="Self.tblDirectory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblException" EntityType="Self.tblException" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGroup" EntityType="Self.tblGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGroupLine" EntityType="Self.tblGroupLine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLocation" EntityType="Self.tblLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersApplications" EntityType="Self.UsersApplications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersDocuments" EntityType="Self.UsersDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersGroups" EntityType="Self.UsersGroups" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Applications_Databases" Association="Self.FK_Applications_Databases">
+      <End Role="Databases" EntitySet="Databases" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_FieldGroupBy" Association="Self.FK_Applications_FieldGroupBy">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Audit_Applications" Association="Self.FK_Audit_Applications">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Audit" EntitySet="Audit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fields_Applications" Association="Self.FK_Fields_Applications">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Fields" EntitySet="Fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_ApplicationID" Association="Self.FK_Reports_ApplicationID">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Session_UserID" Association="Self.FK_Session_UserID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sessions" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDirectory_tblLocation1" Association="Self.FK_tblDirectory_tblLocation1">
+      <End Role="tblLocation" EntitySet="tblLocation" />
+      <End Role="tblDirectory" EntitySet="tblDirectory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGroup_tblDirectory" Association="Self.FK_tblGroup_tblDirectory">
+      <End Role="tblDirectory" EntitySet="tblDirectory" />
+      <End Role="tblGroup" EntitySet="tblGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGroupLine_tblGroup" Association="Self.FK_tblGroupLine_tblGroup">
+      <End Role="tblGroup" EntitySet="tblGroup" />
+      <End Role="tblGroupLine" EntitySet="tblGroupLine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersApplications_Applications" Association="Self.FK_UsersApplications_Applications">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="UsersApplications" EntitySet="UsersApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersApplications_Users" Association="Self.FK_UsersApplications_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersApplications" EntitySet="UsersApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDocuments_Applications" Association="Self.FK_UsersDocuments_Applications">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="UsersDocuments" EntitySet="UsersDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDocuments_Field" Association="Self.FK_UsersDocuments_Field">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="UsersDocuments" EntitySet="UsersDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDocuments_Users" Association="Self.FK_UsersDocuments_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersDocuments" EntitySet="UsersDocuments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

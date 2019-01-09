@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="554284cbe08f4c4ba0a369f0aa2b7278" Name="Diagram1">
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Application" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Audit" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Databas" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Field" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Group" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Note" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Report" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Session" Width="1.5" PointX="7.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.Setting" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.tblDirectory" Width="1.5" PointX="10" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.tblException" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.tblGroup" Width="1.5" PointX="12.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.tblGroupLine" Width="1.5" PointX="14.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.tblLocation" Width="1.5" PointX="7.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.User" Width="1.5" PointX="5.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.UsersDocument" Width="1.5" PointX="7.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Odiss_OPG_BaseModel.UsersGroup" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_Applications_Databases" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_Applications_FieldGroupBy" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_Audit_Applications" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_Fields_Applications" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_Reports_ApplicationID" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_UsersDocuments_Applications" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_UsersDocuments_Field" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_Session_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_tblDirectory_tblLocation1" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_tblGroup_tblDirectory" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_tblGroupLine_tblGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.FK_UsersDocuments_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Odiss_OPG_BaseModel.UsersApplications" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

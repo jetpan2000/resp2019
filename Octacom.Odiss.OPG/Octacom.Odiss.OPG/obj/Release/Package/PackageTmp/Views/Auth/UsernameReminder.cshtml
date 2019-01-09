@@ -1,0 +1,37 @@
+﻿@model UsernameReminder
+@{
+    Layout = null;
+}
+<div id="usernameReminderModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm("UsernameReminder", "Auth", FormMethod.Post, new { autocomplete = "off", id = "formUsernameReminder" }))
+            {
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="@Words.Close"><span style="float:left;margin:5px 5px 0px 0px;font-size:12px;">@Words.Close</span><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">@Words.Login_ForgotUsername</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailAddressUsernameReminder, Words.Login_MessageUsernameReminder)
+                        @Html.TextBoxFor(m => m.EmailAddressUsernameReminder, new {maxlength = 255, @class = "form-control", placeholder = Words.Email, required = "required", @type = "email", autocomplete = "off", autofocus = "autofocus"})
+                    </div>
+
+
+                    <div class="alert alert-danger" id="errorPanelUsernameReminder">
+                        <span id="errorMessageUsernameReminder"></span>
+                    </div>
+
+                    <div class="alert alert-success" id="successPanelUsernameReminder">
+                        <span id="successMessageUsernameReminder"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Words.Close</button>
+                    <input type="submit" value="@Words.Login_RecoverUsername" class="btn btn-primary" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

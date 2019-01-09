@@ -1,0 +1,115 @@
+﻿@model LoginIndex
+@{
+    Layout = null;
+    ViewBag.Title = string.Format("{0} - {1}", Words.Login_Signin, ConfigBase.Settings.Name);
+}
+<!DOCTYPE html>
+<html lang="@Language">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="Octacom">
+    <meta http-equiv="refresh" content="300" />
+    @if (!string.IsNullOrEmpty(ConfigBase.Settings.ShortcutIcon))
+    {
+        <link href="data:image/png;base64,@ConfigBase.Settings.ShortcutIcon" rel="shortcut icon">
+    }
+    else
+    {
+    <link type="image/x-icon" href="@Url.Content("~/content/img/octa-icon.png")" rel="icon">
+    <link href="@Url.Content("~/content/img/octa-icon.png")" rel="shortcut icon">
+    }
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/content/min/css/login")
+    <!--[if lt IE 9]>
+    @Scripts.Render("~/content/min/js/ie8")
+    <![endif]-->
+</head>
+<body class="base@(ConfigBase.Settings.ColorScheme)">
+    <div class="center-login out">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-body">
+                            <br />
+                            <div class="center logoBoxLogin" style="height: 60px;vertical-align: middle; line-height: 60px; border-radius: 4px; text-align: center; margin: 0px auto; "><img src="data:image/png;base64,@ConfigBase.Settings.Logo" alt="@ConfigBase.Settings.Name" /></div>
+                            @using (Html.BeginForm("Login", "Auth", new { returnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post, new { autocomplete = "off", @class = "formlogin" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <h1 class="form-signin-heading">@Words.Login_SigninMessage</h1>
+                                @Html.LabelFor(m => m.Username, "Username", new { @class = "sr-only" })
+                                @Html.TextBoxFor(m => m.Username, new { maxlength = 16, @class = "form-control", placeholder = Words.Username, required = "required", autocomplete = "off", autofocus = "autofocus" })
+                                @Html.LabelFor(m => m.Password, "Password", new { @class = "sr-only" })
+                                @Html.PasswordFor(m => m.Password, new { maxlength = 16, @class = "form-control", placeholder = Words.Password, required = "required" })
+                                if (!ViewData.ModelState.IsValid)
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        @Html.ValidationMessage(string.Empty)
+                                    </div>
+                                }
+                                <input type="submit" value="@Words.Login_Signin" class="btn btn-lg btn-primary btn-block" />
+                            }
+                        </div>
+                        @if (Languages.GetAllEnabled().Count() > 1 || ConfigBase.Settings.PasswordReset || ConfigBase.Settings.UsernameReminder)
+                        {
+                        <div class="panel-footer">
+                            @if (Languages.GetAllEnabled().Count() > 1)
+                            {
+                            <small style="color:#888;">
+                                <strong>@Words.Language:</strong>
+                                @Languages.GetAllEnabled().Repeater(@<a href="javascript:void(0);" class="linkLanguage" data-lang="@item.Initials" style="color:#888;@(Language == item.Initials ? "text-decoration:underline;" : string.Empty)">@item.Name</a>, separatorTemplate: @<text>, </text>, beforeLastTemplate: @<span> @Words.Or </span>)<span>.</span>
+                            </small>
+                            }
+                            @if (ConfigBase.Settings.PasswordReset || ConfigBase.Settings.UsernameReminder)
+                            {
+                                <div class="dropdown" style="float:right;">
+                                    <button class="btn btn-default dropdown-toggle btn-xs" type="button" id="menu1" data-toggle="dropdown">
+                                        @Words.Login_NeedHelp
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+                                        @if (ConfigBase.Settings.PasswordReset)
+                                        {
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" id="forgotPassword">@Words.Login_ForgotPassword</a></li>
+                                        }
+                                        @if (ConfigBase.Settings.UsernameReminder)
+                                        {
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" id="usernameReminder">@Words.Login_ForgotUsername</a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                            <div style="clear:both;"></div>
+                        </div>
+                        }
+                    </div>
+                    @*<div class="text-center"><img src="@Url.Content("~/content/img/octa-wm.png")" /></div><br />*@
+                    <div class="version">@Octacom.Odiss.OPG.Code.OdissVersion.Get</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (ConfigBase.Settings.PasswordReset)
+    {
+        @Html.Partial("~/Views/Auth/ResetPassword.cshtml", new ResetPassword())
+    }
+    @if (ConfigBase.Settings.UsernameReminder)
+    {
+        @Html.Partial("~/Views/Auth/UsernameReminder.cshtml", new UsernameReminder())
+    }
+    <script>
+        var OdissBase = { baseUrl: '@Url.Content("~/")' };
+    </script>
+    @Scripts.Render("~/content/min/js/login")
+    <!--[if lte IE 9]>
+    <script src="@Url.Content("~/Content/js/libs/jquery.placeholder.js")"></script>
+    <script>
+        /* HTML5 Placeholder doesn't work in IE 9 or lower. Workaround = Gambi */
+        $('input, textarea').placeholder({customClass:'ie9-placeholder'});
+    </script>
+    <![endif]-->
+</body>
+</html>

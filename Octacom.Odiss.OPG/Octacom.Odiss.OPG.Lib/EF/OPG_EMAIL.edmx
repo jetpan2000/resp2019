@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OPG_EMAILModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAuditTrack">
+          <Key>
+            <PropertyRef Name="AID" />
+          </Key>
+          <Property Name="AID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+          <Property Name="EventTime" Type="datetime" />
+          <Property Name="EventType" Type="varchar" MaxLength="50" />
+          <Property Name="Details" Type="text" />
+          <Property Name="referencetable" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblBatchTrack">
+          <Key>
+            <PropertyRef Name="BID" />
+          </Key>
+          <Property Name="BID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TicketNo" Type="varchar" MaxLength="50" />
+          <Property Name="BatchID" Type="varchar" MaxLength="50" />
+          <Property Name="BatchDate" Type="datetime" />
+          <Property Name="InvoiceCount" Type="bigint" />
+          <Property Name="EnvelopeCount" Type="bigint" />
+          <Property Name="RTCCount" Type="bigint" />
+          <Property Name="RTVCount" Type="bigint" />
+          <Property Name="PageCount" Type="bigint" />
+          <Property Name="Stage" Type="varchar" MaxLength="50" />
+          <Property Name="BatchType" Type="varchar" MaxLength="50" />
+          <Property Name="CreationOP" Type="varchar" MaxLength="50" />
+          <Property Name="TicketDate" Type="datetime" />
+          <Property Name="PrepInvoiceCount" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tblBatchTypes">
+          <Key>
+            <PropertyRef Name="BTID" />
+          </Key>
+          <Property Name="BTID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BatchType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OPG_EMAIL.dbo.vw_Email' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Email">
+          <Key>
+            <PropertyRef Name="Exception" />
+            <PropertyRef Name="Returned" />
+            <PropertyRef Name="EID" />
+            <PropertyRef Name="PartialException" />
+          </Key>
+          <Property Name="RecievedDate" Type="datetime" />
+          <Property Name="Sender" Type="varchar" MaxLength="500" />
+          <Property Name="MailBody" Type="text" />
+          <Property Name="NoAttachments" Type="int" />
+          <Property Name="TicketNo" Type="bigint" />
+          <Property Name="Exception" Type="bit" Nullable="false" />
+          <Property Name="ExceptionType" Type="varchar" MaxLength="50" />
+          <Property Name="Returned" Type="bit" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="1000" />
+          <Property Name="UID" Type="varchar" MaxLength="50" />
+          <Property Name="FileName" Type="varchar" MaxLength="1000" />
+          <Property Name="FileLocation" Type="varchar" MaxLength="1000" />
+          <Property Name="ExceptionReason" Type="varchar(max)" />
+          <Property Name="AttachmentException" Type="bit" />
+          <Property Name="ConvertedFileLocation" Type="varchar" MaxLength="1000" />
+          <Property Name="isGood" Type="bit" />
+          <Property Name="ConvertTime" Type="datetime" />
+          <Property Name="EID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProcessFileName" Type="varchar" MaxLength="1000" />
+          <Property Name="FileExtension" Type="varchar" MaxLength="50" />
+          <Property Name="AttachExpCode" Type="varchar" MaxLength="50" />
+          <Property Name="RTV" Type="bit" />
+          <Property Name="EmailBackupFile" Type="varchar" MaxLength="500" />
+          <Property Name="PartialException" Type="bit" Nullable="false" />
+          <Property Name="ExceptionDetails" Type="varchar" MaxLength="500" />
+          <Property Name="ReturnedDate" Type="datetime" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="500" />
+          <Property Name="SvcProcessedFileName" Type="varchar" MaxLength="1000" />
+          <Property Name="SvcExceptionReason" Type="varchar(max)" />
+          <Property Name="SvcException" Type="bit" />
+          <Property Name="SvcFileExtension" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="OPG_EMAILModelStoreContainer">
+          <EntitySet Name="tblAuditTrack" EntityType="Self.tblAuditTrack" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBatchTrack" EntityType="Self.tblBatchTrack" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBatchTypes" EntityType="Self.tblBatchTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_Email" EntityType="Self.vw_Email" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Email].[RecievedDate] AS [RecievedDate], 
+    [vw_Email].[Sender] AS [Sender], 
+    [vw_Email].[MailBody] AS [MailBody], 
+    [vw_Email].[NoAttachments] AS [NoAttachments], 
+    [vw_Email].[TicketNo] AS [TicketNo], 
+    [vw_Email].[Exception] AS [Exception], 
+    [vw_Email].[ExceptionType] AS [ExceptionType], 
+    [vw_Email].[Returned] AS [Returned], 
+    [vw_Email].[Subject] AS [Subject], 
+    [vw_Email].[UID] AS [UID], 
+    [vw_Email].[FileName] AS [FileName], 
+    [vw_Email].[FileLocation] AS [FileLocation], 
+    [vw_Email].[ExceptionReason] AS [ExceptionReason], 
+    [vw_Email].[AttachmentException] AS [AttachmentException], 
+    [vw_Email].[ConvertedFileLocation] AS [ConvertedFileLocation], 
+    [vw_Email].[isGood] AS [isGood], 
+    [vw_Email].[ConvertTime] AS [ConvertTime], 
+    [vw_Email].[EID] AS [EID], 
+    [vw_Email].[ProcessFileName] AS [ProcessFileName], 
+    [vw_Email].[FileExtension] AS [FileExtension], 
+    [vw_Email].[AttachExpCode] AS [AttachExpCode], 
+    [vw_Email].[RTV] AS [RTV], 
+    [vw_Email].[EmailBackupFile] AS [EmailBackupFile], 
+    [vw_Email].[PartialException] AS [PartialException], 
+    [vw_Email].[ExceptionDetails] AS [ExceptionDetails], 
+    [vw_Email].[ReturnedDate] AS [ReturnedDate], 
+    [vw_Email].[EmailAddress] AS [EmailAddress], 
+    [vw_Email].[SvcProcessedFileName] AS [SvcProcessedFileName], 
+    [vw_Email].[SvcExceptionReason] AS [SvcExceptionReason], 
+    [vw_Email].[SvcException] AS [SvcException], 
+    [vw_Email].[SvcFileExtension] AS [SvcFileExtension]
+    FROM [dbo].[vw_Email] AS [vw_Email]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OPG_EMAILModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAuditTrack">
+          <Key>
+            <PropertyRef Name="AID" />
+          </Key>
+          <Property Name="AID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EventTime" Type="DateTime" Precision="3" />
+          <Property Name="EventType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="referencetable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblBatchTrack">
+          <Key>
+            <PropertyRef Name="BID" />
+          </Key>
+          <Property Name="BID" Type="Guid" Nullable="false" />
+          <Property Name="TicketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BatchID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BatchDate" Type="DateTime" Precision="3" />
+          <Property Name="InvoiceCount" Type="Int64" />
+          <Property Name="EnvelopeCount" Type="Int64" />
+          <Property Name="RTCCount" Type="Int64" />
+          <Property Name="RTVCount" Type="Int64" />
+          <Property Name="PageCount" Type="Int64" />
+          <Property Name="Stage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BatchType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreationOP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TicketDate" Type="DateTime" Precision="3" />
+          <Property Name="PrepInvoiceCount" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tblBatchType">
+          <Key>
+            <PropertyRef Name="BTID" />
+          </Key>
+          <Property Name="BTID" Type="Guid" Nullable="false" />
+          <Property Name="BatchType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="OPG_EMAILEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAuditTracks" EntityType="Self.tblAuditTrack" />
+          <EntitySet Name="tblBatchTracks" EntityType="Self.tblBatchTrack" />
+          <EntitySet Name="tblBatchTypes" EntityType="Self.tblBatchType" />
+          <EntitySet Name="vw_Email" EntityType="OPG_EMAILModel.vw_Email" />
+        </EntityContainer>
+        <EntityType Name="vw_Email">
+          <Key>
+            <PropertyRef Name="Exception" />
+            <PropertyRef Name="Returned" />
+            <PropertyRef Name="EID" />
+            <PropertyRef Name="PartialException" />
+          </Key>
+          <Property Name="RecievedDate" Type="DateTime" Precision="3" />
+          <Property Name="Sender" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NoAttachments" Type="Int32" />
+          <Property Name="TicketNo" Type="Int64" />
+          <Property Name="Exception" Type="Boolean" Nullable="false" />
+          <Property Name="ExceptionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Returned" Type="Boolean" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="UID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FileLocation" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ExceptionReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AttachmentException" Type="Boolean" />
+          <Property Name="ConvertedFileLocation" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="isGood" Type="Boolean" />
+          <Property Name="ConvertTime" Type="DateTime" Precision="3" />
+          <Property Name="EID" Type="Guid" Nullable="false" />
+          <Property Name="ProcessFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FileExtension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttachExpCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RTV" Type="Boolean" />
+          <Property Name="EmailBackupFile" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PartialException" Type="Boolean" Nullable="false" />
+          <Property Name="ExceptionDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ReturnedDate" Type="DateTime" Precision="3" />
+          <Property Name="EmailAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SvcProcessedFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SvcExceptionReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SvcException" Type="Boolean" />
+          <Property Name="SvcFileExtension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OPG_EMAILModelStoreContainer" CdmEntityContainer="OPG_EMAILEntities">
+          <EntitySetMapping Name="tblAuditTracks">
+            <EntityTypeMapping TypeName="OPG_EMAILModel.tblAuditTrack">
+              <MappingFragment StoreEntitySet="tblAuditTrack">
+                <ScalarProperty Name="AID" ColumnName="AID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="referencetable" ColumnName="referencetable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBatchTracks">
+            <EntityTypeMapping TypeName="OPG_EMAILModel.tblBatchTrack">
+              <MappingFragment StoreEntitySet="tblBatchTrack">
+                <ScalarProperty Name="BID" ColumnName="BID" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+                <ScalarProperty Name="BatchDate" ColumnName="BatchDate" />
+                <ScalarProperty Name="InvoiceCount" ColumnName="InvoiceCount" />
+                <ScalarProperty Name="EnvelopeCount" ColumnName="EnvelopeCount" />
+                <ScalarProperty Name="RTCCount" ColumnName="RTCCount" />
+                <ScalarProperty Name="RTVCount" ColumnName="RTVCount" />
+                <ScalarProperty Name="PageCount" ColumnName="PageCount" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+                <ScalarProperty Name="CreationOP" ColumnName="CreationOP" />
+                <ScalarProperty Name="TicketDate" ColumnName="TicketDate" />
+                <ScalarProperty Name="PrepInvoiceCount" ColumnName="PrepInvoiceCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBatchTypes">
+            <EntityTypeMapping TypeName="OPG_EMAILModel.tblBatchType">
+              <MappingFragment StoreEntitySet="tblBatchTypes">
+                <ScalarProperty Name="BTID" ColumnName="BTID" />
+                <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Email">
+            <EntityTypeMapping TypeName="OPG_EMAILModel.vw_Email">
+              <MappingFragment StoreEntitySet="vw_Email">
+                <ScalarProperty Name="SvcFileExtension" ColumnName="SvcFileExtension" />
+                <ScalarProperty Name="SvcException" ColumnName="SvcException" />
+                <ScalarProperty Name="SvcExceptionReason" ColumnName="SvcExceptionReason" />
+                <ScalarProperty Name="SvcProcessedFileName" ColumnName="SvcProcessedFileName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="ReturnedDate" ColumnName="ReturnedDate" />
+                <ScalarProperty Name="ExceptionDetails" ColumnName="ExceptionDetails" />
+                <ScalarProperty Name="PartialException" ColumnName="PartialException" />
+                <ScalarProperty Name="EmailBackupFile" ColumnName="EmailBackupFile" />
+                <ScalarProperty Name="RTV" ColumnName="RTV" />
+                <ScalarProperty Name="AttachExpCode" ColumnName="AttachExpCode" />
+                <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+                <ScalarProperty Name="ProcessFileName" ColumnName="ProcessFileName" />
+                <ScalarProperty Name="EID" ColumnName="EID" />
+                <ScalarProperty Name="ConvertTime" ColumnName="ConvertTime" />
+                <ScalarProperty Name="isGood" ColumnName="isGood" />
+                <ScalarProperty Name="ConvertedFileLocation" ColumnName="ConvertedFileLocation" />
+                <ScalarProperty Name="AttachmentException" ColumnName="AttachmentException" />
+                <ScalarProperty Name="ExceptionReason" ColumnName="ExceptionReason" />
+                <ScalarProperty Name="FileLocation" ColumnName="FileLocation" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Returned" ColumnName="Returned" />
+                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="NoAttachments" ColumnName="NoAttachments" />
+                <ScalarProperty Name="MailBody" ColumnName="MailBody" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="RecievedDate" ColumnName="RecievedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

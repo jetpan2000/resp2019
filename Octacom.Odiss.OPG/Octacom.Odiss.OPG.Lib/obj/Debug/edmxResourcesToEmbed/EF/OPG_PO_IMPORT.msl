@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OPG_PO_IMPORTModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="tbl_OPG_LOG">
+      <EntityTypeMapping TypeName="OPG_PO_IMPORTModel.tbl_OPG_LOG">
+        <MappingFragment StoreEntitySet="tbl_OPG_LOG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PROCESS_DATE" ColumnName="PROCESS_DATE" />
+          <ScalarProperty Name="BATCH_ID" ColumnName="BATCH_ID" />
+          <ScalarProperty Name="BATCH_TYPE" ColumnName="BATCH_TYPE" />
+          <ScalarProperty Name="XML_FILENAME" ColumnName="XML_FILENAME" />
+          <ScalarProperty Name="PDF_FILENAME" ColumnName="PDF_FILENAME" />
+          <ScalarProperty Name="PDF_FILENAME_NEW" ColumnName="PDF_FILENAME_NEW" />
+          <ScalarProperty Name="DOC_TYPE" ColumnName="DOC_TYPE" />
+          <ScalarProperty Name="VENDOR_NAME" ColumnName="VENDOR_NAME" />
+          <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+          <ScalarProperty Name="PO_NUMBER" ColumnName="PO_NUMBER" />
+          <ScalarProperty Name="INVOICE_NUMBER" ColumnName="INVOICE_NUMBER" />
+          <ScalarProperty Name="INVOICE_DATE" ColumnName="INVOICE_DATE" />
+          <ScalarProperty Name="SAP_PO_NUMBER" ColumnName="SAP_PO_NUMBER" />
+          <ScalarProperty Name="UTILITY_ACCT_NUMBER" ColumnName="UTILITY_ACCT_NUMBER" />
+          <ScalarProperty Name="TOTAL_AMOUNT" ColumnName="TOTAL_AMOUNT" />
+          <ScalarProperty Name="IS_EXCEPTION" ColumnName="IS_EXCEPTION" />
+          <ScalarProperty Name="EXCEPTION_CODE" ColumnName="EXCEPTION_CODE" />
+          <ScalarProperty Name="RTV_REJECT_TYPE" ColumnName="RTV_REJECT_TYPE" />
+          <ScalarProperty Name="RTV_REJECT_FILE" ColumnName="RTV_REJECT_FILE" />
+          <ScalarProperty Name="RTV_REPORT_DONE" ColumnName="RTV_REPORT_DONE" />
+          <ScalarProperty Name="SourceImage" ColumnName="SourceImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

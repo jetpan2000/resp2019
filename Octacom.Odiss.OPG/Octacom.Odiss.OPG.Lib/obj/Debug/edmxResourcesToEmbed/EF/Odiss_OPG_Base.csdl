@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Odiss_OPG_BaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="IDDatabase" Type="Guid" Nullable="false" />
+    <Property Name="IDFieldGroupBy" Type="Guid" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SearchTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SortBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RestrictDocumentAccess" Type="Boolean" />
+    <Property Name="TabOrder" Type="Int32" />
+    <Property Name="DocumentsPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="EnablePages" Type="Boolean" Nullable="false" />
+    <Property Name="EnableProperties" Type="Boolean" Nullable="false" />
+    <Property Name="EnableEditProperties" Type="Boolean" Nullable="false" />
+    <Property Name="EnableNotes" Type="Boolean" Nullable="false" />
+    <Property Name="EnableEmail" Type="Boolean" Nullable="false" />
+    <Property Name="EnableSubmitDocuments" Type="Boolean" Nullable="false" />
+    <Property Name="EnableReports" Type="Boolean" Nullable="false" />
+    <Property Name="Type" Type="Byte" />
+    <Property Name="CustomData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EnableCreate" Type="Boolean" />
+    <Property Name="EnableUpdate" Type="Boolean" />
+    <Property Name="EnableDelete" Type="Boolean" />
+    <Property Name="EnableItemlinesCreate" Type="Boolean" />
+    <Property Name="EnableItemlinesUpdate" Type="Boolean" />
+    <Property Name="EnableItemlinesDelete" Type="Boolean" />
+    <NavigationProperty Name="Databas" Relationship="Self.FK_Applications_Databases" FromRole="Applications" ToRole="Databases" />
+    <NavigationProperty Name="Field" Relationship="Self.FK_Applications_FieldGroupBy" FromRole="Applications" ToRole="Fields" />
+    <NavigationProperty Name="Audits" Relationship="Self.FK_Audit_Applications" FromRole="Applications" ToRole="Audit" />
+    <NavigationProperty Name="Fields" Relationship="Self.FK_Fields_Applications" FromRole="Applications" ToRole="Fields" />
+    <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_ApplicationID" FromRole="Applications" ToRole="Reports" />
+    <NavigationProperty Name="UsersDocuments" Relationship="Self.FK_UsersDocuments_Applications" FromRole="Applications" ToRole="UsersDocuments" />
+    <NavigationProperty Name="Users" Relationship="Self.UsersApplications" FromRole="Applications" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Audit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="IDApplication" Type="Guid" />
+    <Property Name="IDActionType" Type="Int32" Nullable="false" />
+    <Property Name="IDCustomActionType" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Recorded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Reference" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_Audit_Applications" FromRole="Audit" ToRole="Applications" />
+  </EntityType>
+  <EntityType Name="Databas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="DBSchema" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="Byte" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Applications_Databases" FromRole="Databases" ToRole="Applications" />
+  </EntityType>
+  <EntityType Name="Field">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="IDApplication" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="MapTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Editable" Type="Boolean" Nullable="false" />
+    <Property Name="FilterOrder" Type="Int32" />
+    <Property Name="ResultOrder" Type="Int32" />
+    <Property Name="FilterType" Type="Byte" />
+    <Property Name="FilterCommand" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FilterData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EnableRestriction" Type="Boolean" />
+    <Property Name="HeaderGroupName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="EnableAutoComplete" Type="Boolean" />
+    <Property Name="AutoComplete_FilterType" Type="Byte" />
+    <Property Name="AutoComplete_FilterCommand" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AutoComplete_MapFields" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Format" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsRequired" Type="Boolean" />
+    <Property Name="VisibilityType" Type="Byte" />
+    <Property Name="ShowInView" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Options" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NotVisibleList" Type="Boolean" />
+    <Property Name="NotVisibleViewer" Type="Boolean" />
+    <Property Name="NotVisibleSubmit" Type="Boolean" />
+    <Property Name="NotVisibleFilter" Type="Boolean" />
+    <Property Name="MaxLen" Type="Boolean" />
+    <Property Name="NotVisibleExport" Type="Boolean" />
+    <Property Name="IsKey" Type="Boolean" />
+    <Property Name="ValidationRulesJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Applications_FieldGroupBy" FromRole="Fields" ToRole="Applications" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_Fields_Applications" FromRole="Fields" ToRole="Applications" />
+    <NavigationProperty Name="UsersDocuments" Relationship="Self.FK_UsersDocuments_Field" FromRole="Fields" ToRole="UsersDocuments" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GroupKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="IDDocument" Type="Guid" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Note1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="IDApplication" Type="Guid" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DataSource" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FileNamePrefix" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GraphicalType" Type="Byte" />
+    <Property Name="GraphicalOptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ResultOrder" Type="Int32" />
+    <Property Name="Options" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_Reports_ApplicationID" FromRole="Reports" ToRole="Applications" />
+  </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="IDUser" Type="Guid" Nullable="false" />
+    <Property Name="Expire" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastAction" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Session_UserID" FromRole="Sessions" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="Byte" />
+  </EntityType>
+  <EntityType Name="tblDirectory">
+    <Key>
+      <PropertyRef Name="DirectoryID" />
+    </Key>
+    <Property Name="DirectoryID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocationID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Directory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblLocation" Relationship="Self.FK_tblDirectory_tblLocation1" FromRole="tblDirectory" ToRole="tblLocation" />
+    <NavigationProperty Name="tblGroups" Relationship="Self.FK_tblGroup_tblDirectory" FromRole="tblDirectory" ToRole="tblGroup" />
+  </EntityType>
+  <EntityType Name="tblException">
+    <Key>
+      <PropertyRef Name="ExceptionCode" />
+    </Key>
+    <Property Name="ExceptionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Exception" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblGroup">
+    <Key>
+      <PropertyRef Name="GUID" />
+    </Key>
+    <Property Name="GUID" Type="Guid" Nullable="false" />
+    <Property Name="DirectoryID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DocType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Filename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Source" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
+    <Property Name="OriginalFilename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="XMLFile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OctProcessFilename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ScanDate" Type="DateTime" Precision="3" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PONumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Utility" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ReferenceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AribaExceptionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AribaExceptionReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="I_CaptureDate" Type="DateTime" Precision="3" />
+    <Property Name="Archived" Type="Int32" />
+    <Property Name="SourceImage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ArchiveComment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ArchivedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblDirectory" Relationship="Self.FK_tblGroup_tblDirectory" FromRole="tblGroup" ToRole="tblDirectory" />
+    <NavigationProperty Name="tblGroupLines" Relationship="Self.FK_tblGroupLine_tblGroup" FromRole="tblGroup" ToRole="tblGroupLine" />
+  </EntityType>
+  <EntityType Name="tblGroupLine">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="ReferenceId" Type="Guid" Nullable="false" />
+    <Property Name="InvoiceLineNumber" Type="Int32" />
+    <Property Name="UOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ExtendedPrie" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="tblGroup" Relationship="Self.FK_tblGroupLine_tblGroup" FromRole="tblGroupLine" ToRole="tblGroup" />
+  </EntityType>
+  <EntityType Name="tblLocation">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Volume" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblDirectories" Relationship="Self.FK_tblDirectory_tblLocation1" FromRole="tblLocation" ToRole="tblDirectory" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Expire" Type="DateTime" Precision="3" />
+    <Property Name="Permissions" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangedDate" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="LockAccessUntil" Type="DateTime" Precision="3" />
+    <Property Name="WrongAccessAttempts" Type="Int32" />
+    <Property Name="ChangePassword" Type="Boolean" />
+    <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_UserID" FromRole="Users" ToRole="Sessions" />
+    <NavigationProperty Name="UsersDocuments" Relationship="Self.FK_UsersDocuments_Users" FromRole="Users" ToRole="UsersDocuments" />
+    <NavigationProperty Name="Applications" Relationship="Self.UsersApplications" FromRole="Users" ToRole="Applications" />
+  </EntityType>
+  <EntityType Name="UsersDocument">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="IDUser" Type="Guid" Nullable="false" />
+    <Property Name="IDApplication" Type="Guid" Nullable="false" />
+    <Property Name="IDField" Type="Guid" />
+    <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FieldValue" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Application" Relationship="Self.FK_UsersDocuments_Applications" FromRole="UsersDocuments" ToRole="Applications" />
+    <NavigationProperty Name="Field" Relationship="Self.FK_UsersDocuments_Field" FromRole="UsersDocuments" ToRole="Fields" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UsersDocuments_Users" FromRole="UsersDocuments" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UsersGroup">
+    <Key>
+      <PropertyRef Name="IDUser" />
+      <PropertyRef Name="IDGroup" />
+    </Key>
+    <Property Name="IDUser" Type="Guid" Nullable="false" />
+    <Property Name="IDGroup" Type="Guid" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Applications_Databases">
+    <End Role="Databases" Type="Self.Databas" Multiplicity="1" />
+    <End Role="Applications" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Databases">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="IDDatabase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_FieldGroupBy">
+    <End Role="Fields" Type="Self.Field" Multiplicity="0..1" />
+    <End Role="Applications" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="IDFieldGroupBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Audit_Applications">
+    <End Role="Applications" Type="Self.Application" Multiplicity="0..1" />
+    <End Role="Audit" Type="Self.Audit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Audit">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fields_Applications">
+    <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+    <End Role="Fields" Type="Self.Field" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Fields">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_ApplicationID">
+    <End Role="Applications" Type="Self.Application" Multiplicity="0..1" />
+    <End Role="Reports" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDocuments_Applications">
+    <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+    <End Role="UsersDocuments" Type="Self.UsersDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UsersDocuments">
+        <PropertyRef Name="IDApplication" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDocuments_Field">
+    <End Role="Fields" Type="Self.Field" Multiplicity="0..1" />
+    <End Role="UsersDocuments" Type="Self.UsersDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fields">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UsersDocuments">
+        <PropertyRef Name="IDField" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Session_UserID">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sessions" Type="Self.Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sessions">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDirectory_tblLocation1">
+    <End Role="tblLocation" Type="Self.tblLocation" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblDirectory" Type="Self.tblDirectory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLocation">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="tblDirectory">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGroup_tblDirectory">
+    <End Role="tblDirectory" Type="Self.tblDirectory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblGroup" Type="Self.tblGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDirectory">
+        <PropertyRef Name="DirectoryID" />
+      </Principal>
+      <Dependent Role="tblGroup">
+        <PropertyRef Name="DirectoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGroupLine_tblGroup">
+    <End Role="tblGroup" Type="Self.tblGroup" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblGroupLine" Type="Self.tblGroupLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGroup">
+        <PropertyRef Name="GUID" />
+      </Principal>
+      <Dependent Role="tblGroupLine">
+        <PropertyRef Name="ReferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDocuments_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="UsersDocuments" Type="Self.UsersDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UsersDocuments">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsersApplications">
+    <End Role="Applications" Type="Self.Application" Multiplicity="*" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Applications" EntityType="Self.Application" />
+    <EntitySet Name="Audits" EntityType="Self.Audit" />
+    <EntitySet Name="Databases" EntityType="Self.Databas" />
+    <EntitySet Name="Fields" EntityType="Self.Field" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="Notes" EntityType="Self.Note" />
+    <EntitySet Name="Reports" EntityType="Self.Report" />
+    <EntitySet Name="Sessions" EntityType="Self.Session" />
+    <EntitySet Name="Settings" EntityType="Self.Setting" />
+    <EntitySet Name="tblDirectories" EntityType="Self.tblDirectory" />
+    <EntitySet Name="tblExceptions" EntityType="Self.tblException" />
+    <EntitySet Name="tblGroups" EntityType="Self.tblGroup" />
+    <EntitySet Name="tblGroupLines" EntityType="Self.tblGroupLine" />
+    <EntitySet Name="tblLocations" EntityType="Self.tblLocation" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UsersDocuments" EntityType="Self.UsersDocument" />
+    <EntitySet Name="UsersGroups" EntityType="Self.UsersGroup" />
+    <AssociationSet Name="FK_Applications_Databases" Association="Self.FK_Applications_Databases">
+      <End Role="Databases" EntitySet="Databases" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_FieldGroupBy" Association="Self.FK_Applications_FieldGroupBy">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Audit_Applications" Association="Self.FK_Audit_Applications">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Audit" EntitySet="Audits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fields_Applications" Association="Self.FK_Fields_Applications">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Fields" EntitySet="Fields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_ApplicationID" Association="Self.FK_Reports_ApplicationID">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDocuments_Applications" Association="Self.FK_UsersDocuments_Applications">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="UsersDocuments" EntitySet="UsersDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDocuments_Field" Association="Self.FK_UsersDocuments_Field">
+      <End Role="Fields" EntitySet="Fields" />
+      <End Role="UsersDocuments" EntitySet="UsersDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Session_UserID" Association="Self.FK_Session_UserID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sessions" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDirectory_tblLocation1" Association="Self.FK_tblDirectory_tblLocation1">
+      <End Role="tblLocation" EntitySet="tblLocations" />
+      <End Role="tblDirectory" EntitySet="tblDirectories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGroup_tblDirectory" Association="Self.FK_tblGroup_tblDirectory">
+      <End Role="tblDirectory" EntitySet="tblDirectories" />
+      <End Role="tblGroup" EntitySet="tblGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGroupLine_tblGroup" Association="Self.FK_tblGroupLine_tblGroup">
+      <End Role="tblGroup" EntitySet="tblGroups" />
+      <End Role="tblGroupLine" EntitySet="tblGroupLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDocuments_Users" Association="Self.FK_UsersDocuments_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersDocuments" EntitySet="UsersDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="UsersApplications" Association="Self.UsersApplications">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OPG_PO_IMPORTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_OPG_LOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PROCESS_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BATCH_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BATCH_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="XML_FILENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PDF_FILENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PDF_FILENAME_NEW" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOC_TYPE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VENDOR_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VENDOR_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PO_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INVOICE_NUMBER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INVOICE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="SAP_PO_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UTILITY_ACCT_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IS_EXCEPTION" Type="Boolean" Nullable="false" />
+    <Property Name="EXCEPTION_CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RTV_REJECT_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RTV_REJECT_FILE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RTV_REPORT_DONE" Type="Boolean" Nullable="false" />
+    <Property Name="SourceImage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_OPG_LOG" EntityType="Self.tbl_OPG_LOG" />
+  </EntityContainer>
+</Schema>

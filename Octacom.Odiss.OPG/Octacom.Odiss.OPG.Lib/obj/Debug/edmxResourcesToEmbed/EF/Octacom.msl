@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OctacomOICSModelStoreContainer" CdmEntityContainer="Octacom_OICS_Entities">
+    <EntitySetMapping Name="OICSConnectorActivities">
+      <EntityTypeMapping TypeName="Octacom.OICSModel.OICSConnectorActivity">
+        <MappingFragment StoreEntitySet="OICSConnectorActivity">
+          <ScalarProperty Name="OICSConnectorActivityId" ColumnName="OICSConnectorActivityId" />
+          <ScalarProperty Name="ProcessingStage" ColumnName="ProcessingStage" />
+          <ScalarProperty Name="MessageLevel" ColumnName="MessageLevel" />
+          <ScalarProperty Name="MessageCode" ColumnName="MessageCode" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="ActivityTime" ColumnName="ActivityTime" />
+          <ScalarProperty Name="OICSConnectorProcessId" ColumnName="OICSConnectorProcessId" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OICSConnectorProcesses">
+      <EntityTypeMapping TypeName="Octacom.OICSModel.OICSConnectorProcess">
+        <MappingFragment StoreEntitySet="OICSConnectorProcess">
+          <ScalarProperty Name="OICSConnectorProcessId" ColumnName="OICSConnectorProcessId" />
+          <ScalarProperty Name="PrimaryFileName" ColumnName="PrimaryFileName" />
+          <ScalarProperty Name="InitializationTime" ColumnName="InitializationTime" />
+          <ScalarProperty Name="LastSendTime" ColumnName="LastSendTime" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+          <ScalarProperty Name="Finalized" ColumnName="Finalized" />
+          <ScalarProperty Name="TerminalStage" ColumnName="TerminalStage" />
+          <ScalarProperty Name="FinalizationTime" ColumnName="FinalizationTime" />
+          <ScalarProperty Name="HasErrors" ColumnName="HasErrors" />
+          <ScalarProperty Name="HasWarnings" ColumnName="HasWarnings" />
+          <ScalarProperty Name="DataForTramsmission" ColumnName="DataForTramsmission" />
+          <ScalarProperty Name="ProcessData" ColumnName="ProcessData" />
+          <ScalarProperty Name="InitialData" ColumnName="InitialData" />
+          <ScalarProperty Name="ReTryCount" ColumnName="ReTryCount" />
+          <ScalarProperty Name="TerminationCode" ColumnName="TerminationCode" />
+          <ScalarProperty Name="OriginalFileName" ColumnName="OriginalFileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

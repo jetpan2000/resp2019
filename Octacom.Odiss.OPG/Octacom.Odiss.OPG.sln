@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octacom.Odiss.OPG", "Octacom.Odiss.OPG\Octacom.Odiss.OPG.csproj", "{32641C3A-B408-4D44-9DB9-33C09D6A0440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octacom.Odiss.OPG.Lib", "Octacom.Odiss.OPG.Lib\Octacom.Odiss.OPG.Lib.csproj", "{E850FB36-D354-40E0-AE46-B3E2274E5470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octacom.OPG.UnitTest", "Octacom.OPG.UnitTest\Octacom.OPG.UnitTest.csproj", "{A51DD7E5-96A0-4175-B574-8393BA5F7839}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octacom.Odiss.Library", "..\Octacom.Odiss\Octacom.Odiss.Library\Octacom.Odiss.Library.csproj", "{D858CC24-F312-48F1-9484-48E7301845E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octacom.Ariba.Service", "Octacom.Ariba.Service\Octacom.Ariba.Service.csproj", "{EA080AAC-AE7F-40D5-844A-0EB050E05D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octacom.OPG.WS", "Octacom.OPG.WS\Octacom.OPG.WS\Octacom.OPG.WS.csproj", "{B90AC6A2-79C4-433C-9445-5711BBC1887D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32641C3A-B408-4D44-9DB9-33C09D6A0440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32641C3A-B408-4D44-9DB9-33C09D6A0440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32641C3A-B408-4D44-9DB9-33C09D6A0440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32641C3A-B408-4D44-9DB9-33C09D6A0440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E850FB36-D354-40E0-AE46-B3E2274E5470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E850FB36-D354-40E0-AE46-B3E2274E5470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E850FB36-D354-40E0-AE46-B3E2274E5470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E850FB36-D354-40E0-AE46-B3E2274E5470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51DD7E5-96A0-4175-B574-8393BA5F7839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51DD7E5-96A0-4175-B574-8393BA5F7839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51DD7E5-96A0-4175-B574-8393BA5F7839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51DD7E5-96A0-4175-B574-8393BA5F7839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D858CC24-F312-48F1-9484-48E7301845E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D858CC24-F312-48F1-9484-48E7301845E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D858CC24-F312-48F1-9484-48E7301845E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D858CC24-F312-48F1-9484-48E7301845E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA080AAC-AE7F-40D5-844A-0EB050E05D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA080AAC-AE7F-40D5-844A-0EB050E05D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA080AAC-AE7F-40D5-844A-0EB050E05D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA080AAC-AE7F-40D5-844A-0EB050E05D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90AC6A2-79C4-433C-9445-5711BBC1887D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90AC6A2-79C4-433C-9445-5711BBC1887D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90AC6A2-79C4-433C-9445-5711BBC1887D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90AC6A2-79C4-433C-9445-5711BBC1887D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED635031-801B-4397-8597-5BC59E4802C9}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://dev-tfs-2012:8080/tfs/octacom
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Octacom.Odiss.OPG\\Octacom.Odiss.OPG.csproj
+		SccProjectName1 = Octacom.Odiss.OPG
+		SccLocalPath1 = Octacom.Odiss.OPG
+		SccProjectUniqueName2 = Octacom.Odiss.OPG.Lib\\Octacom.Odiss.OPG.Lib.csproj
+		SccProjectName2 = Octacom.Odiss.OPG.Lib
+		SccLocalPath2 = Octacom.Odiss.OPG.Lib
+		SccProjectUniqueName3 = Octacom.OPG.UnitTest\\Octacom.OPG.UnitTest.csproj
+		SccProjectName3 = Octacom.OPG.UnitTest
+		SccLocalPath3 = Octacom.OPG.UnitTest
+		SccProjectUniqueName4 = ..\\Octacom.Odiss\\Octacom.Odiss.Library\\Octacom.Odiss.Library.csproj
+		SccProjectName4 = ../Octacom.Odiss/Octacom.Odiss.Library
+		SccLocalPath4 = ..\\Octacom.Odiss\\Octacom.Odiss.Library
+		SccProjectUniqueName5 = Octacom.Ariba.Service\\Octacom.Ariba.Service.csproj
+		SccProjectName5 = Octacom.Ariba.Service
+		SccLocalPath5 = Octacom.Ariba.Service
+		SccProjectUniqueName6 = Octacom.OPG.WS\\Octacom.OPG.WS\\Octacom.OPG.WS.csproj
+		SccProjectName6 = Octacom.OPG.WS/Octacom.OPG.WS
+		SccLocalPath6 = Octacom.OPG.WS\\Octacom.OPG.WS
+	EndGlobalSection
+EndGlobal

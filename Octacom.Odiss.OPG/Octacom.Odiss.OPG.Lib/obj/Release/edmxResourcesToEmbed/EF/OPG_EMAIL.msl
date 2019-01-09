@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OPG_EMAILModelStoreContainer" CdmEntityContainer="OPG_EMAILEntities">
+    <EntitySetMapping Name="tblAuditTracks">
+      <EntityTypeMapping TypeName="OPG_EMAILModel.tblAuditTrack">
+        <MappingFragment StoreEntitySet="tblAuditTrack">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventType" ColumnName="EventType" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="referencetable" ColumnName="referencetable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBatchTracks">
+      <EntityTypeMapping TypeName="OPG_EMAILModel.tblBatchTrack">
+        <MappingFragment StoreEntitySet="tblBatchTrack">
+          <ScalarProperty Name="BID" ColumnName="BID" />
+          <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+          <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+          <ScalarProperty Name="BatchDate" ColumnName="BatchDate" />
+          <ScalarProperty Name="InvoiceCount" ColumnName="InvoiceCount" />
+          <ScalarProperty Name="EnvelopeCount" ColumnName="EnvelopeCount" />
+          <ScalarProperty Name="RTCCount" ColumnName="RTCCount" />
+          <ScalarProperty Name="RTVCount" ColumnName="RTVCount" />
+          <ScalarProperty Name="PageCount" ColumnName="PageCount" />
+          <ScalarProperty Name="Stage" ColumnName="Stage" />
+          <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+          <ScalarProperty Name="CreationOP" ColumnName="CreationOP" />
+          <ScalarProperty Name="TicketDate" ColumnName="TicketDate" />
+          <ScalarProperty Name="PrepInvoiceCount" ColumnName="PrepInvoiceCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBatchTypes">
+      <EntityTypeMapping TypeName="OPG_EMAILModel.tblBatchType">
+        <MappingFragment StoreEntitySet="tblBatchTypes">
+          <ScalarProperty Name="BTID" ColumnName="BTID" />
+          <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_Email">
+      <EntityTypeMapping TypeName="OPG_EMAILModel.vw_Email">
+        <MappingFragment StoreEntitySet="vw_Email">
+          <ScalarProperty Name="SvcFileExtension" ColumnName="SvcFileExtension" />
+          <ScalarProperty Name="SvcException" ColumnName="SvcException" />
+          <ScalarProperty Name="SvcExceptionReason" ColumnName="SvcExceptionReason" />
+          <ScalarProperty Name="SvcProcessedFileName" ColumnName="SvcProcessedFileName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ReturnedDate" ColumnName="ReturnedDate" />
+          <ScalarProperty Name="ExceptionDetails" ColumnName="ExceptionDetails" />
+          <ScalarProperty Name="PartialException" ColumnName="PartialException" />
+          <ScalarProperty Name="EmailBackupFile" ColumnName="EmailBackupFile" />
+          <ScalarProperty Name="RTV" ColumnName="RTV" />
+          <ScalarProperty Name="AttachExpCode" ColumnName="AttachExpCode" />
+          <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+          <ScalarProperty Name="ProcessFileName" ColumnName="ProcessFileName" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="ConvertTime" ColumnName="ConvertTime" />
+          <ScalarProperty Name="isGood" ColumnName="isGood" />
+          <ScalarProperty Name="ConvertedFileLocation" ColumnName="ConvertedFileLocation" />
+          <ScalarProperty Name="AttachmentException" ColumnName="AttachmentException" />
+          <ScalarProperty Name="ExceptionReason" ColumnName="ExceptionReason" />
+          <ScalarProperty Name="FileLocation" ColumnName="FileLocation" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Returned" ColumnName="Returned" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+          <ScalarProperty Name="NoAttachments" ColumnName="NoAttachments" />
+          <ScalarProperty Name="MailBody" ColumnName="MailBody" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="RecievedDate" ColumnName="RecievedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
