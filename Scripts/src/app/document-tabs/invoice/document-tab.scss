@@ -1,0 +1,21 @@
+th.gl-account-number, td.gl-account-number {
+    min-width: 200px;
+}
+
+th.part-number, td.part-number {
+    width: 150px;
+    max-width: 150px;
+}
+
+$action-bar-padding: 2px;
+
+.document-action-bar {
+    padding-left: $action-bar-padding;
+    padding-right: $action-bar-padding;
+    padding-bottom: $action-bar-padding;
+}
+
+th.unit-price, td.unit-price {
+    min-width: 80px;
+    width: 90px;
+}

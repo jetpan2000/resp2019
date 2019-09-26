@@ -1,0 +1,4 @@
+﻿export default {
+    DROPDOWN: 'DROPDOWN',
+    AUTOCOMPLETE: 'AUTOCOMPLETE'
+}
